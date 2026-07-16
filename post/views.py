@@ -44,7 +44,3 @@ class IDUpdateDeletePost(APIView):
             return Response({"detail": "У вас нет прав на удаление этого поста"}, status=status.HTTP_403_FORBIDDEN)
         post.delete()
         return Response({"detail": "Пост удалён"}, status=status.HTTP_200_OK)
-"""{
-  "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4Njc5MDczMCwiaWF0IjoxNzg0MTk4NzMwLCJqdGkiOiJhYTZiMzVlYzE0Mzk0Yjg3OGNiNmFhNDU5ZTU5NTdmOSIsInVzZXJfaWQiOiIxIiwicm9sZSI6InVzZXIifQ.pFsxBcmqZSPPI_BI-3Nq5SkvaIt5aly1yQQ-a04JfBg",
-  "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg0ODAzNTMwLCJpYXQiOjE3ODQxOTg3MzAsImp0aSI6IjE1YWVlNGUxODExMjQ1ZWFiYzM2M2E5OTk4M2M2OWM1IiwidXNlcl9pZCI6IjEiLCJyb2xlIjoidXNlciJ9.kcgk30n5JEQ5Nw7ZXy37qzbgdgbK2qJSsNgbeQ8WbQY"
-}"""
