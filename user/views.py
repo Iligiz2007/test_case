@@ -34,7 +34,7 @@ class ControllUser(APIView):
         if request.user.role == "admin":
             queryset = User.objects.all()
             return Response(data=queryset,status=200)
-        return Response({"detail": "У вас нет прав на получени пользователей"},status=status.HTTP_401_UNAUTHORIZED)
+        return Response({"detail": "У вас нет прав на получени пользователей"},status=status.HTTP_403_FORBIDDEN)
     
 class ControllUserPutDelete(APIView):
     serializer_class = CreateUserSerializers
@@ -45,7 +45,7 @@ class ControllUserPutDelete(APIView):
             user.role = request.data.get('role')
             user.save()
             return Response({"detail": f"Роль изменена на"},status=200)
-        return Response({"detail": "У вас нет прав"},status=status.HTTP_401_UNAUTHORIZED)
+        return Response({"detail": "У вас нет прав"},status=status.HTTP_403_FORBIDDEN)
     
     def delete(self,request,pk):
         user = get_object_or_404(User,pk=pk)
@@ -53,7 +53,7 @@ class ControllUserPutDelete(APIView):
             user.is_active= False
             user.save()
             return Response({"detail": "Аккаунт деактивирован"}, status=status.HTTP_200_OK)
-        return Response({"detail": "У вас нет прав"},status=status.HTTP_401_UNAUTHORIZED)
+        return Response({"detail": "У вас нет прав"},status=status.HTTP_403_FORBIDDEN)
 
 class UserView(APIView):
     serializer_class = CreateUserSerializers
